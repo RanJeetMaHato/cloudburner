@@ -54,6 +54,7 @@ resource "aws_route_table_association" "RTb" {
 resource "aws_security_group" "sg" {
   name        = "Security Group"
   description = "Open 22,443,80"
+  vpc_id      = aws_vpc.vpc.id
 
 ingress = [
     for port in [22, 80, 443] : {
